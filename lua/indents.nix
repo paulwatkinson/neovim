@@ -12,8 +12,19 @@ _: {
         });
       end
 
-      set_ft_indent("xml", 2);
+      set_ft_indent("css", 2);
+      set_ft_indent("html", 2);
       set_ft_indent("java", 4);
+      set_ft_indent("json", 4);
       set_ft_indent("sql", 4);
+      set_ft_indent("toml", 2);
+      set_ft_indent("xml", 2);
+      set_ft_indent("rust", 4);
+
+      set_ft_indent("typescript", 4);
+      set_ft_indent("typescriptreact", 4);
+
+      set_ft_indent("javascript", 4);
+      set_ft_indent("javascriptreact", 4);
     '';
 }
