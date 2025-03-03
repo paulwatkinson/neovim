@@ -31,7 +31,7 @@ in {
         local jdtls = require('jdtls');
 
         local function get_lombok_jar(root)
-          local values = vim.fn.glob(root .. '/repository/org/projectlombok/lombok/*/lombok-*.jar', true, true);
+          local values = vim.fn.glob(root .. '/org/projectlombok/lombok/*/lombok-*.jar', true, true);
 
           for i, v in ipairs(values) do
             if v:match('lombok%-[%d.]+[.]jar$') ~= nil then
@@ -81,15 +81,31 @@ in {
         local root_dir = get_root_dir();
 
         local cmd = {
-            '${jdk21_headless}/bin/java'
+          '${jdk21_headless}/bin/java'
         };
 
-        local lombok_jar = get_lombok_jar('$HOME/.m2');
+        if root_dir ~= nil then
+          local lombok_sources = {
+            -- Check locally first...
+            root_dir .. '/.m2',
 
-        if lombok_jar ~= nil then
-          vim.list_extend(cmd, {
-            '-javaagent:' .. lombok_jar
-          });
+            -- Fallback to global
+            '$HOME/.m2/repository',
+          };
+
+          local lombok_jar = nil;
+
+          for _, source in ipairs(lombok_sources) do
+            lombok_jar = get_lombok_jar(source);
+
+            if lombok_jar ~= nil then
+              vim.list_extend(cmd, {
+                '-javaagent:' .. lombok_jar
+              });
+
+              break;
+            end
+          end
         end
 
         vim.list_extend(cmd, {
