@@ -43,4 +43,10 @@ _: {
     enable = true;
     extraDiagnostics.enable = true;
   };
+
+  nu = {
+    enable = true;
+
+    lsp.enable = true;
+  };
 }

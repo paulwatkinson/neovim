@@ -3,7 +3,6 @@
   lib,
   # packages
   clang-tools,
-  nushell,
   lemminx,
   sqls,
   # jdt-language-server,
@@ -35,18 +34,6 @@
             '--background-index',
             '--compile-commands-dir=' .. vim.fn.getcwd() .. '/'
           },
-        }
-      '';
-
-    nu-lsp =
-      # lua
-      ''
-        lspconfig.nushell.setup {
-          capabilities = capabilities,
-          on_attach = default_on_attach,
-          cmd = { '${lib.getExe nushell}', '--lsp' },
-          filetypes = { 'nu' },
-          single_file_support = true,
         }
       '';
 

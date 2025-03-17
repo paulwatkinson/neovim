@@ -14,12 +14,4 @@
       max_lines = 6;
     };
   };
-
-  grammars = [
-    (tree-sitter.buildGrammar {
-      language = "nu";
-      version = tree-sitter-nu.shortRev;
-      src = tree-sitter-nu;
-    })
-  ];
 }

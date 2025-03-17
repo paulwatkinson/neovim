@@ -199,31 +199,13 @@
         "type": "github"
       }
     },
-    "plugin-nvim-surround": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1742110828,
-        "narHash": "sha256-iMgCLWuOqrJTiPGeffGMwvRvc4Wkob3GYV1W5xx+qrA=",
-        "owner": "kylechui",
-        "repo": "nvim-surround",
-        "rev": "6c54643ef42016b744888b06d2381abd23f9b7ea",
-        "type": "github"
-      },
-      "original": {
-        "owner": "kylechui",
-        "repo": "nvim-surround",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
         "nixpkgs": "nixpkgs",
         "nvf": "nvf",
         "plugin-clangd-extensions-nvim": "plugin-clangd-extensions-nvim",
-        "plugin-nvim-jdtls": "plugin-nvim-jdtls",
-        "plugin-nvim-surround": "plugin-nvim-surround",
-        "tree-sitter-nu": "tree-sitter-nu"
+        "plugin-nvim-jdtls": "plugin-nvim-jdtls"
       }
     },
     "rust-overlay": {
@@ -290,22 +272,6 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
-        "type": "github"
-      }
-    },
-    "tree-sitter-nu": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1741692422,
-        "narHash": "sha256-EyaFrO9NE2Ivo8YTXZ6nmC31PB7WFbFdz7AMRw0ooHo=",
-        "owner": "nushell",
-        "repo": "tree-sitter-nu",
-        "rev": "c10340b5bb3789f69182acf8f34c3d4fc24d2fe1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nushell",
-        "repo": "tree-sitter-nu",
         "type": "github"
       }
     }
