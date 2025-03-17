@@ -21,7 +21,7 @@ _: {
 
   ts = {
     enable = true;
-    extensions.ts-error-translator.enable = true;
+    extensions.ts-error-translator.enable = false;
   };
 
   java = {
