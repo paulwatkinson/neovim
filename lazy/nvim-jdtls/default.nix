@@ -30,11 +30,16 @@ in {
       ''
         local jdtls = require('jdtls');
 
+        local lombok_version_preference = vim.version.range('>1.18.30');
+
         local function get_lombok_jar(root)
           local values = vim.fn.glob(root .. '/org/projectlombok/lombok/*/lombok-*.jar', true, true);
+          local matched = nil;
 
           for i, v in ipairs(values) do
-            if v:match('lombok%-[%d.]+[.]jar$') ~= nil then
+            matched = v:match('lombok%-[%d.]+[.]jar$');
+
+            if matched ~= nil and lombok_version_preference:has(matched) then
               return v;
             end
           end
