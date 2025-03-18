@@ -6,10 +6,10 @@ _: {
 
   preview.glow.enable = true;
 
-  # surround = {
-  #   enable = true;
-  #   # useVendoredKeybindings = false;
-  # };
+  surround = {
+    enable = true;
+    useVendoredKeybindings = false;
+  };
 
   diffview-nvim.enable = true;
 }
