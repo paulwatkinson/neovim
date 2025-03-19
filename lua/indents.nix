@@ -21,6 +21,7 @@ _: {
       set_ft_indent("xml", 2);
       set_ft_indent("rust", 4);
       set_ft_indent("nu", 2);
+      set_ft_indent("nix", 2);
 
       set_ft_indent("typescript", 4);
       set_ft_indent("typescriptreact", 4);
