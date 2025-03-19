@@ -19,7 +19,7 @@ in {
 
         local java_root = vim.fs.root(0, {'.git', 'mvnw', 'gradlew', 'build.xml', 'pom.xml'});
 
-        if vim.uv.fs_stat(java_root .. '/checkstyle.xml') then
+        if java_root ~= nil and vim.uv.fs_stat(java_root .. '/checkstyle.xml') then
           plugin_lint.linters.checkstyle.config_file = java_root .. '/checkstyle.xml';
 
           linters_by_ft.java = {
