@@ -44,10 +44,12 @@
 
       luaConfigRC = callPackage' ./lua;
 
+      assistant = callPackage' ./config/assistant.nix;
       autocomplete = callPackage' ./config/autocomplete.nix;
       binds = callPackage' ./config/binds.nix;
       comments = callPackage' ./config/comments.nix;
       debugger = callPackage' ./config/debugger.nix;
+      diagnostics = callPackage' ./config/diagnostics.nix;
       filetree = callPackage' ./config/filetree.nix;
       git = callPackage' ./config/git.nix;
       languages = callPackage' ./config/languages.nix;
@@ -59,7 +61,6 @@
       theme = callPackage' ./config/theme.nix;
       treesitter = callPackage' ./config/treesitter.nix;
       ui = callPackage' ./config/ui.nix;
-      diagnostics = callPackage' ./config/diagnostics.nix;
 
       utility = callPackage' ./config/utility.nix;
       visuals = callPackage' ./config/visuals.nix;
