@@ -160,19 +160,19 @@ in {
 
               configuration = {
                 runtimes = ${
-                  (toLua "        ") (
-                    lib.mapAttrsToList (name: jdk: {
-                      inherit name;
-                      path = "${jdk}/lib/openjdk/";
-                    }) {
-                      "JavaSE-23" = jdk23_headless;
-                      "JavaSE-21" = jdk21_headless;
-                      "JavaSE-17" = jdk17_headless;
-                      "JavaSE-11" = jdk11_headless;
-                      "JavaSE-1.8" = jdk8_headless;
-                    }
-                  )
-                },
+          (toLua "        ") (
+            lib.mapAttrsToList (name: jdk: {
+              inherit name;
+              path = "${jdk}/lib/openjdk/";
+            }) {
+              "JavaSE-23" = jdk23_headless;
+              "JavaSE-21" = jdk21_headless;
+              "JavaSE-17" = jdk17_headless;
+              "JavaSE-11" = jdk11_headless;
+              "JavaSE-1.8" = jdk8_headless;
+            }
+          )
+        },
               },
             }
           },
@@ -184,6 +184,12 @@ in {
 
           on_attach = default_on_attach,
         };
+
+        if root_dir ~= nil and vim.uv.fs_stat(root_dir .. '/.m2') then
+          config.settings.java.configuration.maven = {
+            globalSettings = '${./maven_settings.xml}';
+          };
+        end
 
         vim.api.nvim_create_autocmd('FileType', {
           pattern = 'java',
