@@ -1,9 +1,11 @@
-_: {
+{config, ...}: let
+  cfg = config.assistant.copilot;
+in {
   copilot = {
-    enable = true;
-    cmp.enable = true;
+    enable = false;
+    cmp.enable = cfg.enable;
 
-    setupOpts.suggestion.enabled = true;
+    setupOpts.suggestion.enabled = cfg.enable;
 
     mappings = {
       panel.open = "<leader>s";

@@ -5,6 +5,7 @@
   callPackage,
   # inputs
   nvf,
+  overrides ? {},
   ...
 }: let
   config.vim = let
@@ -69,6 +70,6 @@
 in
   (nvf.lib.neovimConfiguration {
     inherit pkgs;
-    modules = [{inherit config;}];
+    modules = [(lib.recursiveUpdate {inherit config;} {config.vim = overrides;})];
   })
   .neovim
