@@ -1,5 +1,6 @@
 {
   config,
+  pkgs,
   lib,
   nvf,
   ...
@@ -25,7 +26,7 @@ in {
           linters_by_ft.java = {
             'checkstyle'
           };
-        end 
+        end
 
         plugin_lint.linters_by_ft = linters_by_ft;
 
@@ -38,4 +39,19 @@ in {
 
       configure_plugin_lint();
     '');
+
+  lsp.lspconfig.sources.openscad =
+    # lua
+    ''
+      lspconfig.openscad_lsp.setup {
+        capabilities = capabilities,
+        on_attach = default_on_attach,
+        cmd = { '${pkgs.openscad-lsp}/bin/openscad-lsp', '--stdio' },
+        filetypes = { 'openscad' },
+        root_dir = function(fname)
+          return vim.fs.dirname(vim.fs.find('.git', { path = fname, upward = true })[1])
+        end,
+        single_file_support = true,
+      };
+    '';
 }
