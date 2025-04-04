@@ -8,11 +8,27 @@
   }
 
   {
+    key = "<leader>W";
+    mode = "n";
+    silent = true;
+    action = "<cmd>wa<CR>";
+    desc = "Save all buffers";
+  }
+
+  {
     key = "<leader>q";
     mode = "n";
     silent = true;
     action = "<cmd>q<CR>";
     desc = "Close buffer";
+  }
+
+  {
+    key = "<leader>Q";
+    mode = "n";
+    silent = true;
+    action = "<cmd>qa<CR>";
+    desc = "Close all buffers";
   }
 
   {
