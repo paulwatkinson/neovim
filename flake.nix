@@ -2,13 +2,19 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs";
 
-    flake-utils.url = "github:numtide/flake-utils";
+    systems.url = "github:nix-systems/default";
+
+    flake-utils = {
+      url = "github:numtide/flake-utils";
+      inputs.systems.follows = "systems";
+    };
 
     nvf = {
       url = "github:notashelf/nvf";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-utils.follows = "flake-utils";
+        systems.follows = "systems";
       };
     };
 
