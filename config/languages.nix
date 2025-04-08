@@ -5,6 +5,13 @@ _: {
   enableTreesitter = true;
   enableExtraDiagnostics = true;
 
+  bash.enable = true;
+  css.enable = true;
+  html.enable = true;
+  nix.enable = true;
+  python.enable = true;
+  zig.enable = true;
+
   clang = {
     enable = true;
     # dap.package = pkgs.lldb_17;
@@ -33,12 +40,6 @@ _: {
     treesitter.enable = true;
   };
 
-  bash.enable = true;
-  html.enable = true;
-  nix.enable = true;
-  python.enable = true;
-  zig.enable = true;
-
   sql = {
     enable = true;
     extraDiagnostics.enable = true;
@@ -46,7 +47,6 @@ _: {
 
   nu = {
     enable = true;
-
     lsp.enable = true;
   };
 }
