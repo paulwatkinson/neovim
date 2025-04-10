@@ -12,7 +12,6 @@
   trouble.enable = true;
   lspSignature.enable = true;
   lspkind.enable = true;
-  lsplines.enable = true;
 
   null-ls.enable = true;
 
