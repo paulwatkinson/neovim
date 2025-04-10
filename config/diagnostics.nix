@@ -1,4 +1,7 @@
 _: {
+  enable = true;
+  config.virtual_text = true;
+
   nvim-lint = {
     enable = true;
 
