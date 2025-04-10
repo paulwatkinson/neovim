@@ -92,7 +92,7 @@ in {
         if root_dir ~= nil then
           local lombok_sources = {
             -- Check locally first...
-            root_dir .. '/.m2',
+            root_dir .. '/.m2/repository',
 
             -- Fallback to global
             '$HOME/.m2/repository',
