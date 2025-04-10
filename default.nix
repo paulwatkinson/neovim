@@ -14,7 +14,7 @@
       (callPackage target {config = config.vim;})
       ["override" "overrideDerivation"];
   in
-    {
+    lib.recursiveUpdate {
       globals.mapleader = ",";
 
       undoFile.enable = true;
@@ -66,7 +66,7 @@
       utility = callPackage' ./config/utility.nix;
       visuals = callPackage' ./config/visuals.nix;
     }
-    // (callPackage' ./patches.nix);
+    (callPackage' ./patches.nix);
 in
   (nvf.lib.neovimConfiguration {
     inherit pkgs;
