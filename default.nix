@@ -30,6 +30,7 @@
         ripgrep
         ueberzug
         xsel
+        unzip
 
         cargo
         rustc
