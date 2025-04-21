@@ -6,6 +6,7 @@ _: {
   enableExtraDiagnostics = true;
 
   bash.enable = true;
+  csharp.enable = true;
   css.enable = true;
   html.enable = true;
   lua.enable = true;
