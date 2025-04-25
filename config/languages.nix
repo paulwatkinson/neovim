@@ -6,8 +6,10 @@
   enableExtraDiagnostics = true;
 
   bash.enable = true;
+  csharp.enable = true;
   css.enable = true;
   html.enable = true;
+  lua.enable = true;
   nix.enable = true;
   python.enable = true;
   zig.enable = true;
