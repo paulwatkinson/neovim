@@ -1,4 +1,4 @@
-_: {
+{
   enable = true;
   config.virtual_text = true;
 

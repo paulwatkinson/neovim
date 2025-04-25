@@ -1,4 +1,4 @@
-_: {
+{
   borders = {
     enable = true;
     globalStyle = "single";

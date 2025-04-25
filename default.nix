@@ -10,9 +10,14 @@
 }: let
   config.vim = let
     callPackage' = target:
-      builtins.removeAttrs
-      (callPackage target {config = config.vim;})
-      ["override" "overrideDerivation"];
+      if builtins.isPath target
+      then callPackage' (import target)
+      else if builtins.isFunction target
+      then
+        builtins.removeAttrs
+        (callPackage target {config = config.vim;})
+        ["override" "overrideDerivation"]
+      else target;
   in
     lib.recursiveUpdate {
       globals.mapleader = ",";
@@ -39,7 +44,7 @@
         checkstyle
       ];
 
-      keymaps = import ./config/keymaps.nix;
+      keymaps = callPackage' ./config/keymaps.nix;
 
       extraPlugins = callPackage' ./plugins;
       lazy.plugins = callPackage' ./lazy;
@@ -58,6 +63,7 @@
       lsp = callPackage' ./config/lsp.nix;
       notify = callPackage' ./config/notify.nix;
       projects = callPackage' ./config/projects.nix;
+      snippets = callPackage' ./config/snippets.nix;
       statusline = callPackage' ./config/statusline.nix;
       telescope = callPackage' ./config/telescope.nix;
       theme = callPackage' ./config/theme.nix;

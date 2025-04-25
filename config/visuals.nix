@@ -1,4 +1,4 @@
-_: {
+{
   nvim-web-devicons.enable = true;
   nvim-scrollbar.enable = true;
 

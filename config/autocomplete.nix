@@ -1,4 +1,4 @@
-_: {
+{
   nvim-cmp = {
     enable = true;
 

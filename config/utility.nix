@@ -1,4 +1,4 @@
-_: {
+{
   images.image-nvim = {
     enable = true;
     setupOpts.backend = "kitty";

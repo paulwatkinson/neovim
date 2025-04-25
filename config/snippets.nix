@@ -1,0 +1,3 @@
+{
+  luasnip.enable = true;
+}

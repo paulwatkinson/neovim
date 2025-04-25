@@ -1,4 +1,4 @@
-_: {
+{
   enableDAP = true;
   enableLSP = true;
   enableFormat = true;
