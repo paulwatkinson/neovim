@@ -30,33 +30,43 @@
   };
 
   outputs = {
+    self,
     nixpkgs,
     flake-utils,
     ...
   } @ inputs:
-    flake-utils.lib.eachDefaultSystem (system: let
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
-
-      inherit (pkgs) lib;
-
-      scope = lib.makeScope pkgs.newScope (_: {
-        inherit lib;
-        inherit
-          (inputs)
-          nvf
-          plugin-clangd-extensions-nvim
-          plugin-nvim-jdtls
-          plugin-nvim-surround
-          tree-sitter-nu
-          ;
-      });
-    in {
+    (flake-utils.lib.eachDefaultSystem (system: {
       packages = rec {
-        neovim = scope.callPackage ./default.nix {};
+        neovim = self.lib.mkNeovim system {};
         default = neovim;
       };
-    });
+    }))
+    // {
+      lib = rec {
+        mkNeovimScope = system: let
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+          };
+
+          inherit (pkgs) lib;
+        in
+          lib.makeScope pkgs.newScope (_: {
+            inherit lib;
+            inherit
+              (inputs)
+              nvf
+              plugin-clangd-extensions-nvim
+              plugin-nvim-jdtls
+              plugin-nvim-surround
+              tree-sitter-nu
+              ;
+          });
+
+        mkNeovim = system: overrides: let
+          inherit (mkNeovimScope system) callPackage;
+        in
+          callPackage ./default.nix {inherit overrides;};
+      };
+    };
 }
