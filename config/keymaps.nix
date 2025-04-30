@@ -51,7 +51,7 @@
     key = "<leader>fG";
     mode = "n";
     silent = true;
-    action = "<cmd>Telescope live_grep additional_args=--hidden<CR>";
+    action = "<cmd>lua require('telescope.builtin').live_grep({additional_args = {'--hidden'}})<CR>";
     desc = "Live grep (inc. hidden) [Telescope]";
   }
 ]
