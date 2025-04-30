@@ -46,4 +46,12 @@
     action = "<cmd>Neotree source=document_symbols reveal=true<CR>";
     desc = "Open Neotree (symbols)";
   }
+
+  {
+    key = "<leader>fG";
+    mode = "n";
+    silent = true;
+    action = "<cmd>Telescope live_grep additional_args=--hidden<CR>";
+    desc = "Live grep (inc. hidden) [Telescope]";
+  }
 ]
