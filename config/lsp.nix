@@ -8,6 +8,7 @@
   # jdt-language-server,
   ...
 }: {
+  enable = true;
   lightbulb.enable = true;
   trouble.enable = true;
   lspSignature.enable = true;
