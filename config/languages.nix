@@ -37,6 +37,29 @@
       enable = true;
       codeActions = true;
     };
+
+    lsp = {
+      enable = true;
+
+      opts = ''
+        ['rust-analyzer'] = {
+          cargo = { allFeature = true },
+
+          checkOnSave = true,
+
+          check = {
+            extraArgs = {
+              "--target-dir",
+              vim.fs.joinpath(vim.lsp.buf.list_workspace_folders()[1] or vim.env.PWD, "target/check")
+            },
+          },
+
+          procMacro = {
+            enable = true,
+          },
+        },
+      '';
+    };
   };
 
   ts = {
