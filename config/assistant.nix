@@ -2,10 +2,13 @@
   cfg = config.assistant.copilot;
 in {
   copilot = {
-    enable = false;
+    enable = true;
     cmp.enable = cfg.enable;
 
-    setupOpts.suggestion.enabled = cfg.enable;
+    setupOpts = {
+      suggestion.enabled = cfg.enable;
+      copilot_model = "claude-4-sonnet";
+    };
 
     mappings = {
       panel.open = "<leader>s";
