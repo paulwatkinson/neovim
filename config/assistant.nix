@@ -2,7 +2,7 @@
   cfg = config.assistant.copilot;
 in {
   copilot = {
-    enable = true;
+    enable = false;
     cmp.enable = cfg.enable;
 
     setupOpts = {

@@ -27,6 +27,11 @@
       flake = false;
       url = "github:p00f/clangd_extensions.nvim";
     };
+
+    plugin-copilot-chat-nvim = {
+      flake = false;
+      url = "github:CopilotC-Nvim/CopilotChat.nvim";
+    };
   };
 
   outputs = {
@@ -57,6 +62,7 @@
               (inputs)
               nvf
               plugin-clangd-extensions-nvim
+              plugin-copilot-chat-nvim
               plugin-nvim-jdtls
               plugin-nvim-surround
               tree-sitter-nu

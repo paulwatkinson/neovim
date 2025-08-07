@@ -154,6 +154,22 @@
         "type": "github"
       }
     },
+    "plugin-copilot-chat-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1754535581,
+        "narHash": "sha256-rjbd2X4I3N9/E3I0O2yCF7GrbCXCKz8/zMXFdG1IcY4=",
+        "owner": "CopilotC-Nvim",
+        "repo": "CopilotChat.nvim",
+        "rev": "807c4a179d48aedaf9c5b5dd667486766411d81b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "CopilotC-Nvim",
+        "repo": "CopilotChat.nvim",
+        "type": "github"
+      }
+    },
     "plugin-nvim-jdtls": {
       "flake": false,
       "locked": {
@@ -176,6 +192,7 @@
         "nixpkgs": "nixpkgs",
         "nvf": "nvf",
         "plugin-clangd-extensions-nvim": "plugin-clangd-extensions-nvim",
+        "plugin-copilot-chat-nvim": "plugin-copilot-chat-nvim",
         "plugin-nvim-jdtls": "plugin-nvim-jdtls",
         "systems": "systems"
       }
