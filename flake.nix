@@ -44,6 +44,9 @@
       packages = rec {
         neovim = self.lib.mkNeovim system {};
         default = neovim;
+        copilot = self.lib.mkNeovim system {
+          assistant.copilot.enable = true;
+        };
       };
     }))
     // {
