@@ -4,7 +4,7 @@
   nvf,
   ...
 }: let
-  inherit (nvf.lib.nvim.dag) entryAfter;
+  inherit (nvf.lib.nvim.dag) entryAfter entryAnywhere;
 in {
   pluginRC.nvim-lint-checkstyle =
     entryAfter ["nvim-lint"]
@@ -23,6 +23,15 @@ in {
       end
 
       configure_plugin_lint();
+    '';
+
+  startPlugins = ["mini-pick"];
+
+  pluginRC.mini-pick =
+    entryAnywhere
+    # lua
+    ''
+      vim.ui.select = require('mini.pick').ui_select;
     '';
 
   lsp.lspconfig.sources.openscad =
