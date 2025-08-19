@@ -5,7 +5,7 @@
   luajitPackages,
   ...
 }:
-lib.optionalAttrs (builtins.trace config.assistant.copilot config.assistant.copilot.enable) {
+lib.optionalAttrs config.assistant.copilot.enable {
   copilot-chat-nvim = {
     package = {
       name = "copilot-chat-nvim";
