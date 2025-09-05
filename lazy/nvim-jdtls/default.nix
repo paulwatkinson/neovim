@@ -7,6 +7,7 @@
   jdk17_headless,
   jdk11_headless,
   jdk8_headless,
+  vscode-extensions,
   ...
 }: let
   toLua = indent:
@@ -29,6 +30,25 @@ in {
       # lua
       ''
         local jdtls = require('jdtls');
+
+        local bundles = {
+          vim.fn.glob('${vscode-extensions.vscjava.vscode-java-debug}/share/vscode/extensions/vscjava.vscode-java-debug/server/com.microsoft.java.debug.plugin-*.jar', true, true)[1],
+        };
+
+        local test_bundles = vim.fn.glob('${vscode-extensions.vscjava.vscode-java-test}/share/vscode/extensions/vscjava.vscode-java-test/server/*.jar', true, true);
+
+        local test_bundle_excluded = {
+          "com.microsoft.java.test.runner-jar-with-dependencies.jar",
+          "jacocoagent.jar",
+        };
+
+        for _, jar in ipairs(test_bundles) do
+          local file_name = vim.fn.fnamemodify(jar, ":t");
+
+          if not vim.tbl_contains(test_bundle_excluded, file_name) then
+            table.insert(bundles, jar);
+          end
+        end
 
         local lombok_version_preference = vim.version.range('>1.18.30');
 
@@ -179,7 +199,7 @@ in {
 
           init_options = {
             extendedClientCapabilities = jdtls.extendedClientCapabilities,
-            bundles = {}
+            bundles = bundles,
           },
 
           on_attach = default_on_attach,
