@@ -1,4 +1,4 @@
-{
+{prettierd, ...}: {
   enableDAP = true;
   enableFormat = true;
   enableTreesitter = true;
@@ -6,12 +6,17 @@
 
   bash.enable = true;
   csharp.enable = true;
-  css.enable = true;
+  clojure.enable = true;
   html.enable = true;
   lua.enable = true;
   nix.enable = true;
   python.enable = true;
   zig.enable = true;
+
+  css = {
+    enable = true;
+    format.package = prettierd;
+  };
 
   clang = {
     enable = true;
@@ -29,6 +34,7 @@
 
   ts = {
     enable = true;
+    format.package = prettierd;
     extensions.ts-error-translator.enable = false;
   };
 

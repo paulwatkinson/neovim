@@ -54,5 +54,12 @@ in {
   formatter.conform-nvim.setupOpts = {
     format_on_save = lib.mkForce null;
     format_after_save = lib.mkForce null;
+    formatters_by_ft.clojure = ["cljfmt"];
+    formatters_by_ft.edn = ["cljfmt"];
+    formatters.cljfmt = {
+      command = "${pkgs.cljfmt}/bin/cljfmt";
+      args = ["fix" "-"];
+      stdin = true;
+    };
   };
 }
