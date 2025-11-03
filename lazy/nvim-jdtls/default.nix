@@ -174,7 +174,7 @@ in {
 
                 settings = {
                   url = '${./formatter.xml}',
-                  profile = 'Personal',
+                  profile = 'Default',
                 },
               },
 
