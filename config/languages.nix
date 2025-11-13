@@ -13,6 +13,13 @@
   python.enable = true;
   zig.enable = true;
 
+  markdown = {
+    enable = true;
+    lsp.enable = true;
+    format.enable = true;
+    extensions.markview-nvim.enable = true;
+  };
+
   css = {
     enable = true;
     format.package = prettierd;

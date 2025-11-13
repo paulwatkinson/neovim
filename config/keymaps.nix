@@ -54,4 +54,12 @@
     action = "<cmd>lua require('telescope.builtin').live_grep({additional_args = {'--hidden'}})<CR>";
     desc = "Live grep (inc. hidden) [Telescope]";
   }
+
+  {
+    key = "<leader>F";
+    mode = "n";
+    silent = true;
+    action = "<cmd>lua require('conform').format()<CR>";
+    desc = "Format current buffer [Conform]";
+  }
 ]

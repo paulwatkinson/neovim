@@ -28,5 +28,7 @@ _: {
 
       set_ft_indent("javascript", 4);
       set_ft_indent("javascriptreact", 4);
+
+      set_ft_indent("markdown", 4);
     '';
 }

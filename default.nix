@@ -61,6 +61,7 @@
           debugger = callPackage' ./config/debugger.nix;
           diagnostics = callPackage' ./config/diagnostics.nix;
           filetree = callPackage' ./config/filetree.nix;
+          formatter = callPackage' ./config/formatter.nix;
           git = callPackage' ./config/git.nix;
           languages = callPackage' ./config/languages.nix;
           lsp = callPackage' ./config/lsp.nix;

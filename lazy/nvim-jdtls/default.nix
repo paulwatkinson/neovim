@@ -2,7 +2,7 @@
   lib,
   plugin-nvim-jdtls,
   jdt-language-server,
-  jdk23_headless,
+  jdk25_headless,
   jdk21_headless,
   jdk17_headless,
   jdk11_headless,
@@ -185,7 +185,7 @@ in {
               inherit name;
               path = "${jdk}/lib/openjdk/";
             }) {
-              "JavaSE-23" = jdk23_headless;
+              "JavaSE-25" = jdk25_headless;
               "JavaSE-21" = jdk21_headless;
               "JavaSE-17" = jdk17_headless;
               "JavaSE-11" = jdk11_headless;
