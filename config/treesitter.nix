@@ -14,5 +14,6 @@
 
   grammars = with vimPlugins.nvim-treesitter.builtGrammars; [
     diff
+    just
   ];
 }
