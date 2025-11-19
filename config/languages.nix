@@ -5,12 +5,13 @@
   enableExtraDiagnostics = true;
 
   bash.enable = true;
-  csharp.enable = true;
   clojure.enable = true;
+  csharp.enable = true;
   html.enable = true;
   lua.enable = true;
   nix.enable = true;
   python.enable = true;
+  yaml.enable = true;
   zig.enable = true;
 
   markdown = {
