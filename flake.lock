@@ -169,7 +169,8 @@
         "plugin-clangd-extensions-nvim": "plugin-clangd-extensions-nvim",
         "plugin-copilot-chat-nvim": "plugin-copilot-chat-nvim",
         "plugin-nvim-jdtls": "plugin-nvim-jdtls",
-        "systems": "systems"
+        "systems": "systems",
+        "tree-sitter-alloy": "tree-sitter-alloy"
       }
     },
     "systems": {
@@ -184,6 +185,22 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "tree-sitter-alloy": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1748702718,
+        "narHash": "sha256-1ZQ9KkPBhK4pmkvZ7y1kEDeTs0y/fE3+2ea0cKCtQG8=",
+        "owner": "mattsre",
+        "repo": "tree-sitter-alloy",
+        "rev": "3e18eb4e97f06c57a3925f3d20bef6329a6eaef3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mattsre",
+        "repo": "tree-sitter-alloy",
         "type": "github"
       }
     }

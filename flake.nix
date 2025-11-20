@@ -31,6 +31,11 @@
       flake = false;
       url = "github:CopilotC-Nvim/CopilotChat.nvim";
     };
+
+    tree-sitter-alloy = {
+      flake = false;
+      url = "github:mattsre/tree-sitter-alloy";
+    };
   };
 
   outputs = {
@@ -39,12 +44,22 @@
     flake-utils,
     ...
   } @ inputs:
-    (flake-utils.lib.eachDefaultSystem (system: {
+    (flake-utils.lib.eachDefaultSystem (system: let
+      pkgs = nixpkgs.legacyPackages.${system};
+    in {
       packages = rec {
         neovim = self.lib.mkNeovim system {};
         default = neovim;
+
         copilot = self.lib.mkNeovim system {
           assistant.copilot.enable = true;
+        };
+
+        tree-sitter-alloy = pkgs.tree-sitter.buildGrammar {
+          language = "alloy";
+          version = "0.1.0";
+          src = inputs.tree-sitter-alloy;
+          generate = true;
         };
       };
     }))
@@ -69,6 +84,10 @@
               plugin-nvim-surround
               tree-sitter-nu
               ;
+
+            self' = {
+              packages = self.packages.${system};
+            };
           });
 
         mkNeovim = system: overrides: let
