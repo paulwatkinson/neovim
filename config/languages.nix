@@ -49,6 +49,7 @@
           checkOnSave = true,
 
           check = {
+            command = "clippy",
             extraArgs = {
               "--target-dir",
               vim.fs.joinpath(vim.lsp.buf.list_workspace_folders()[1] or vim.env.PWD, "target/check")
