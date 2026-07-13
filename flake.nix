@@ -36,16 +36,25 @@
       flake = false;
       url = "github:mattsre/tree-sitter-alloy";
     };
+
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     self,
     nixpkgs,
     flake-utils,
+    rust-overlay,
     ...
   } @ inputs:
     (flake-utils.lib.eachDefaultSystem (system: let
-      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs = import nixpkgs {
+        inherit system;
+        overlays = [(import rust-overlay)];
+      };
     in {
       packages = rec {
         neovim = self.lib.mkNeovim system {};
@@ -68,6 +77,7 @@
         mkNeovimScope = system: let
           pkgs = import nixpkgs {
             inherit system;
+            overlays = [(import rust-overlay)];
             config.allowUnfree = true;
           };
 

@@ -1,4 +1,8 @@
-{prettierd, ...}: {
+{
+  prettierd,
+  pkgsBuildHost,
+  ...
+}: {
   enableDAP = true;
   enableFormat = true;
   enableTreesitter = true;
@@ -41,6 +45,10 @@
 
     lsp = {
       enable = true;
+
+      package = let
+        rustToolchain = pkgsBuildHost.rust-bin.fromRustupToolchainFile ../rust-toolchain.toml;
+      in ["${rustToolchain}/bin/rust-analyzer"];
 
       opts = ''
         ['rust-analyzer'] = {
