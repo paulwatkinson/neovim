@@ -171,7 +171,8 @@
         "plugin-nvim-jdtls": "plugin-nvim-jdtls",
         "rust-overlay": "rust-overlay",
         "systems": "systems",
-        "tree-sitter-alloy": "tree-sitter-alloy"
+        "tree-sitter-alloy": "tree-sitter-alloy",
+        "unstable": "unstable"
       }
     },
     "rust-overlay": {
@@ -222,6 +223,22 @@
       "original": {
         "owner": "mattsre",
         "repo": "tree-sitter-alloy",
+        "type": "github"
+      }
+    },
+    "unstable": {
+      "locked": {
+        "lastModified": 1788865024,
+        "narHash": "sha256-3YkAzvtt4LoE11IcBDzPshIF3fJ0aIoILqE7dAg8CLI=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "422d1ae605d7fcd9896412b37dc065c456c0eefb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
         "type": "github"
       }
     }

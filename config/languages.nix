@@ -1,6 +1,7 @@
 {
   prettierd,
   pkgsBuildHost,
+  lua-language-server,
   ...
 }: {
   enableDAP = true;
@@ -12,11 +13,15 @@
   clojure.enable = true;
   csharp.enable = true;
   html.enable = true;
-  lua.enable = true;
   nix.enable = true;
   python.enable = true;
   yaml.enable = true;
   zig.enable = true;
+
+  lua = {
+    enable = true;
+    lsp.package = lua-language-server;
+  };
 
   markdown = {
     enable = true;

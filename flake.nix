@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs";
+    unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     systems.url = "github:nix-systems/default";
 
@@ -46,6 +47,7 @@
   outputs = {
     self,
     nixpkgs,
+    unstable,
     flake-utils,
     rust-overlay,
     ...
@@ -81,6 +83,12 @@
             config.allowUnfree = true;
           };
 
+          pkgs' = import unstable {
+            inherit system;
+            overlays = [(import rust-overlay)];
+            config.allowUnfree = true;
+          };
+
           inherit (pkgs) lib;
         in
           lib.makeScope pkgs.newScope (_: {
@@ -94,6 +102,8 @@
               plugin-nvim-surround
               tree-sitter-nu
               ;
+
+            inherit (pkgs') lua-language-server;
 
             self' = {
               packages = self.packages.${system};
