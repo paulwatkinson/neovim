@@ -100,7 +100,7 @@ in {
             return compute_unique_workspace(vim.fn.getcwd());
           end
 
-          return vim.fn.stdpath('cache') .. '/jdtls/workspace/' .. vim.fn.fnameescape(vim.fn.fnamemodify(where, ":p:h:gs?/?%?"));
+          return vim.fn.stdpath('cache') .. '/jdtls/workspace/' .. vim.fn.fnameescape(vim.fn.fnamemodify(where, ":p:h:gs?/?--?"));
         end
 
         local root_dir = get_root_dir();
